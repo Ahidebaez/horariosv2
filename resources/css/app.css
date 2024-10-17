@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cambiar color de fondo del dashboard */
+.dashboard {
+    background-color: #21fa288b; /* Negro */
+    color: #bdeeacc1; /* Blanco para el texto */
+}

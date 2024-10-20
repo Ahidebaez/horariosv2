@@ -1,4 +1,4 @@
-@extends("menu1")
+@extends("menu2")
 
 @section("izquierda")
 <!-- Menú lateral con opciones relevantes para el inventario de la biblioteca -->
@@ -27,6 +27,8 @@
                     <td>{{ $alumno->apellidom }}</td>
                     <td>{{ $alumno->sexo }}</td>
                     <td>{{ $alumno->email }}</td>
+                    <td>
+                  
                 </tr>
             @endforeach
         </tbody>

@@ -33,7 +33,7 @@
                 </p>
             @endauth
       
-        @endauth  </a>   
+         
     </div>
 @endsection
 

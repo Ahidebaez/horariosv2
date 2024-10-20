@@ -18,7 +18,9 @@ class AlumnoController extends Controller
         $alumnos = Alumno::all();
         
         // Pasamos los alumnos a la vista
-        return view('alumnos.index', ['alumnos' => $alumnos]);
+        // return view('alumnos.index', ['alumnos' => $alumnos]);
+          // Pasar los alumnos a la vista 'home'
+          return view('home', ['alumnos' => $alumnos]);
     }
 
     /**

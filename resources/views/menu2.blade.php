@@ -54,18 +54,15 @@
                     </li>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link" href="#">Home</a>
                         </li>
 
 
 
 
-                        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('catalogos') }}">Catálogos</a>
-                <li class="nav-item"><a class="nav-link" href="{{ route('horarios') }}">Horarios</a>
-                <li class="nav-item"><a class="nav-link" href="{{ route('proyectos') }}">ProyectosIndividuales</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('instrumentacion') }}">Instrumentación</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('tutorias') }}">Tutorías</a></li> --}}
-                        {{-- <ul class="nav flex-row">
+                       
+                      
+                        <ul class="nav flex-row">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"  id="catalogosDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,7 +77,7 @@
                                     <li><a class="dropdown-item" href="{{ route('carreras') }}">Carreras</a></li>
                                     <li><a class="dropdown-item" href="{{ route('reticulas') }}">Retículas</a></li>
                                     <li><a class="dropdown-item" href="{{ route('materias') }}">Materias</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('alumnos') }}">Alumnos</a></li>
+                                    <li><a class="dropdown-item" href="#">Alumnos</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -90,7 +87,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="horariosDropdown">
                                     <li><a class="dropdown-item" href="{{ route('docentes') }}">Docentes</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('alumnos') }}">Alumnos</a></li>
+                                    <li><a class="dropdown-item" href="#">Alumnos</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -114,8 +111,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tutorias') }}">Tutorías</a>
                             </li>
-                        </ul> --}}
-                        {{-- <li class="nav-item dropdown">
+                        </ul> 
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ route('periodo') }}" id="periodoDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Periodo
@@ -129,30 +126,10 @@
                                     </select>
                                 </li>
                             </ul>
-                        </li> --}}
-                        {{-- <a class="nav-link" href="#">Periodo</a>
-                    <select class="form-select" aria-label="Seleccionar periodo">
-                        <option value="ene-jun-24">Ene-Jun 24</option>
-                        <option value="ago-dic-24">Ago-Dic 24</option>
-                        <option value="ene-jun-25">Ene-Jun 25</option>
-                    </select>
-                </li> --}}
+                        </li>
 
-                        {{-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('biblioteca') }}">Biblioteca</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('edificio') }}">Edificio Informatico</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('departamentos') }}">Departamentos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('encargados') }}">Encargados</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('encargados2') }}">Encargados2</a>
-                </li> --}}
+
+
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -170,14 +147,7 @@
         @endauth
 
         <div class="container mt-4">
-            <!-- Aquí va tu contenido principal -->
-            {{-- @auth
-    <div class="user-info text-end">
-        <h4 class="user-name">
-            {{ Auth::user()->name }}
-        </h4>
-    </div>
-    @endauth --}}
+
             @yield('contenido1')
         </div>
 

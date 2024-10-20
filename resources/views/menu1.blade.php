@@ -38,14 +38,14 @@
             <ul class="navbar-nav ms-auto">
 
 
-                <a class="nav-link" href="{{ route('acerca') }}">Acerca de</a>
+                {{-- <a class="nav-link" href="{{ route('acerca') }}">Acerca de</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contacto') }}">Contáctanos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('ayuda') }}">Ayuda</a>
-            </li>
+            </li> --}}
 
 
 
@@ -99,7 +99,12 @@
         @endauth --}}
 
         <p> <h1>¡Bienvenido a nuestra Web App de Gestión de Proyectos!</h1></p>
+      
+        <p> <h6>Registro de Datos de Alumnos </h6></p>
+
         
+
+
 
         @yield('contenido1')
 

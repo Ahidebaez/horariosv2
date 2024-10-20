@@ -65,7 +65,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('proyectos') }}">ProyectosIndividuales</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('instrumentacion') }}">Instrumentación</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('tutorias') }}">Tutorías</a></li> --}}
-                        <ul class="nav flex-row">
+                        {{-- <ul class="nav flex-row">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle"  id="catalogosDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,8 +114,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('tutorias') }}">Tutorías</a>
                             </li>
-                        </ul>
-                        <li class="nav-item dropdown">
+                        </ul> --}}
+                        {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ route('periodo') }}" id="periodoDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Periodo
@@ -129,7 +129,7 @@
                                     </select>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <a class="nav-link" href="#">Periodo</a>
                     <select class="form-select" aria-label="Seleccionar periodo">
                         <option value="ene-jun-24">Ene-Jun 24</option>
@@ -137,16 +137,6 @@
                         <option value="ene-jun-25">Ene-Jun 25</option>
                     </select>
                 </li> --}}
-
-
-
-
-
-
-
-
-
-
 
                         {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('biblioteca') }}">Biblioteca</a>
@@ -209,15 +199,6 @@
 
         <!-- Pie de página -->
         @yield('piepagina')
-
-
-
-
-
-
-
-
-
 
         <!-- Agrega el script de Bootstrap JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

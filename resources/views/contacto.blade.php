@@ -23,13 +23,15 @@
             <a href="https://www.javascript.com" target="_blank" class="text-white">JavaScript</a> |
             <a href="https://getbootstrap.com" target="_blank" class="text-white">Bootstrap</a>
         </p>
-        <a > @auth
-                    
-            <p class="mb-0"><h4 class="user-name">
-             {{ Auth::user()->name }}
-             <p>normaahide_924@hotmail.com</p>
-
-        </h4></p> 
+        <a>
+            @auth
+                <p class="mb-0">
+                    <h4 class="user-name">
+                        {{ Auth::user()->name }}
+                        <p>{{ Auth::user()->email }}</p> <!-- Aquí obtienes el correo dinámicamente -->
+                    </h4>
+                </p>
+            @endauth
       
         @endauth  </a>   
     </div>

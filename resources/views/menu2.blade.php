@@ -70,8 +70,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="catalogosDropdown">
                                     <li><a class="dropdown-item" href="{{ route('periodo') }}">Periodos</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('plazas') }}">Plazas</a></li>
-                                    <li><a class="dropdown-item" href="{{ route('puestos') }}">Puestos</a></li>
+                                    <li><a class="dropdown-item" href="#">Plazas</a></li>
+                                    <li><a class="dropdown-item" href="#">Puestos</a></li>
                                     <li><a class="dropdown-item" href="{{ route('personal') }}">Personal</a></li>
                                     <li><a class="dropdown-item" href="{{ route('deptos') }}">Deptos.</a></li>
                                     <li><a class="dropdown-item" href="{{ route('carreras') }}">Carreras</a></li>

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\PuestoController;
+use App\Http\Controllers\PlazaController;
 use App\Http\Controllers\ProfileController;
 
 
@@ -27,6 +29,18 @@ Route::get('/home', function () {
 Route::get('/', [AlumnoController::class, 'index'])->name('home');
 
 
+// Ruta para la vista de índice de puestos
+Route::get('/puestos', [PuestoController::class, 'index'])->name('puestos.index');
+
+// Ruta para la vista de índice de plazas
+Route::get('/plazas', [PlazaController::class, 'index'])->name('plazas.index');
+
+
+
+
+
+
+
 Route::get('/horarios', function () {
     return view('horarios');
 })->middleware("auth")->name('horarios');
@@ -36,25 +50,6 @@ Route::get('/horarios', function () {
 Route::get('/dashboard', function () {
     return view('inicio');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,8 +81,8 @@ Route::get('/deptos', function () {return view('deptos');})->middleware("auth")-
 Route::get('/materias', function () {return view('materias');})->middleware("auth")->name('materias');
 Route::get('/periodo', function () {return view('periodo');})->middleware("auth")->name('periodo');
 Route::get('/personal', function () {return view('personal');})->middleware("auth")->name('personal');
-Route::get('/plazas', function () {return view('plazas');})->middleware("auth")->name('plazas');
-Route::get('/puestos', function () {return view('puestos');})->middleware("auth")->name('puestos');
+// Route::get('/plazas', function () {return view('plazas');})->middleware("auth")->name('plazas');
+// Route::get('/puestos', function () {return view('puestos');})->middleware("auth")->name('puestos');
 Route::get('/reticulas', function () {return view('reticulas');})->middleware("auth")->name('reticulas');
 Route::get('/docentes', function () {return view('docentes');})->middleware("auth")->name('docentes');
 Route::get('/capacitacion', function () {return view('capacitacion');})->middleware("auth")->name('capacitacion');
@@ -109,30 +104,6 @@ Route::get('/instrumentacion', function () {
 Route::get('/tutorias', function () {
     return view('tutorias');
 })->middleware("auth")->name('tutorias');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Route::middleware('auth')->group(function () {

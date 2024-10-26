@@ -15,59 +15,7 @@
                     Laravel, PHP y JavaScript, brindándote una experiencia fluida y eficaz en la organización de la
                     información. Siéntete libre de navegar y descubrir cómo estas herramientas pueden mejorar tus flujos de
                     trabajo. ¡Esperamos que disfrutes la experiencia!</p>
-            @section('derecha')
-                <div class="container">
-                    <h2>Lista de Alumnos</h2>
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Apellido Paterno</th>
-                                <th>Apellido Materno</th>
-                                <th>Sexo</th>
-                                <th>Email</th>
-                         
-                                <th>Ver</th> <!-- Columna para el botón "Ver" -->
-                                <th>Editar</th> <!-- Columna para el botón "Editar" -->
-                                <th>Eliminar</th> <!-- Columna para el botón "Eliminar" -->
-                        
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($alumnos as $alumno)
-                                <tr>
-                                    <td>{{ $alumno->id }}</td>
-                                    <td>{{ $alumno->nombre }}</td>
-                                    <td>{{ $alumno->apellidop }}</td>
-                                    <td>{{ $alumno->apellidom }}</td>
-                                    <td>{{ $alumno->sexo }}</td>
-                                    <td>{{ $alumno->email }}</td>
-                                   
-                                    
-                                        <!-- Botones para las acciones -->
-                                        <td>
-                                            <button class="btn btn-info btn-sm">Ver</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-warning btn-sm">Editar</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm">Eliminar</button>
-                                        </td>
-                                    
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-
-                </div>
-            @endsection
-
-
-
-        </div>
-    </div>
+           
 
 </div>
 </div>

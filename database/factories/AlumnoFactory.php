@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-
+use App\Models\Carrera;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class AlumnoFactory extends Factory
 {
+    protected $model = \App\Models\Alumno::class; // Asegúrate de que el modelo esté definido correctamente
+
     /**
      * Define the model's default state.
      *
@@ -18,14 +20,14 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-     
-           
-            'nombre' => fake()->name(), // Genera un nombre aleatorio
-            'apellidop' => fake()->lastName(), // Genera un apellido paterno aleatorio
-            'apellidom' => fake()->lastName(), // Genera un apellido materno aleatorio
-            'sexo' => fake()->randomElement(['M', 'F']), // Genera aleatoriamente 'M' o 'F'
-            'email' => fake()->unique()->safeEmail(), // Genera un correo único y seguro
-         
+            'noctrl' => fake()->bothify("########"),
+            'nombre' => fake()->name(),
+            'apellidop' => fake()->lastName(),
+            'apellidom' => fake()->lastName(),
+            'sexo' => fake()->randomElement(['M', 'F']),
+            'email' => fake()->email(),
+            // Aquí selecciona una carrera existente
+            'carrera_id' => Carrera::all()->random()->id, // Selecciona aleatoriamente una carrera existente
         ];
     }
 }

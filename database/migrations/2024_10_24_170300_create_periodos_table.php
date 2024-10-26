@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plazas', function (Blueprint $table) {
-            $table->id(); // Este es el ID auto-incrementable
-            $table->string("idPlaza", 25); // Este campo puede ser un identificador único manual si lo necesitas
-            $table->string("nombrePlaza", 200);
+        Schema::create('periodos', function (Blueprint $table) {
+            $table->id();  // Identificador autoincrementable
+            $table->string('idPeriodo', 5)->unique();
+            $table->string('periodo', 100);
+            $table->string('descCorto', 10);
+            $table->date('fechaIni');
+            $table->date('fechaFin');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plazas');
+        Schema::dropIfExists('periodos');
     }
 };

@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('puestos', function (Blueprint $table) {
-            $table->id(); // Campo auto-incrementable para el ID principal
-            $table->integer('idpuesto')->unique(); // Campo numérico único para identificar el puesto
-            $table->string('nombre', 200); // Campo para el nombre del puesto
-            $table->string('tipo', 200); // Campo para el tipo de puesto
-            $table->timestamps(); // Campos para registrar fechas de creación y actualización
+            $table->id();
+            $table->string("idPuesto",10);
+            $table->string("nombre",200);
+            $table->string("tipo",200);
+            $table->timestamps();
         });
     }
 

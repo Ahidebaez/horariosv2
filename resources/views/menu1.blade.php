@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Presentacion Wep App</title>
-    <!-- Agrega el enlace a Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Presentacion Web App</title>
+    
+    <!-- Agrega el enlace a los archivos CSS y JS usando Vite -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
         /* Ajusta la altura y el espaciado del navbar */
@@ -49,8 +48,8 @@
             <a class="navbar-brand" href="#">Web App</a>
             <ul class="navbar-nav ms-auto">
 
-
-                <a class="nav-link" href="{{ route('acerca') }}">Acerca de</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('acerca') }}">Acerca de</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacto') }}">Contáctanos</a>
@@ -58,12 +57,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('ayuda') }}">Ayuda</a>
                 </li>
-
-
-
-
-
-
 
                 @guest
                     <li class="nav-item">
@@ -84,21 +77,9 @@
     </nav>
 
     <div class="container mt-4">
-
-
-        <p>
         <h1>¡Bienvenido a nuestra Web App de Gestión de Proyectos!</h1>
-
-
         
-        </p>
-
-
-
-
-
         @yield('contenido1')
-
 
         @section('piepagina')
             <div class="row fixed-bottom bg-warning text-white text-center p-2">
@@ -111,19 +92,14 @@
                         <a href="https://www.javascript.com" target="_blank" class="text-white">JavaScript</a> |
                         <a href="https://getbootstrap.com" target="_blank" class="text-white">Bootstrap</a>
                     </p>
-
                 </div>
-
             </div>
         @endsection
-
     </div>
-
 
     <!-- Contenido principal -->
     <div class="container mt-10">
         <div class="row">
-
             <div class="col-md-2">
                 <!-- Aquí estará el menú lateral -->
                 @yield('izquierda')
@@ -137,11 +113,6 @@
 
     <!-- Pie de página -->
     @yield('piepagina')
-
-
-
-    <!-- Agrega el script de Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

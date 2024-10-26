@@ -1,21 +1,41 @@
 @extends("menu1")
 
 @section("izquierda")
-<!-- Menú lateral con opciones relevantes para los puestos -->
+<!-- Menú lateral con opciones relevantes para el inventario de puestos -->
 @endsection
 
-@section("derecha")
+@section('derecha')
 <div class="container">
     <h2>Lista de Puestos</h2>
+
+    <!-- Formulario para insertar un nuevo puesto -->
+    <form action="{{ route('puestos.store') }}" method="POST" class="mb-4">
+        @csrf
+        <div class="row">
+            <div class="col-md-8">
+                <label for="nombre">Nombre del Puesto</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" required>
+            </div>
+            <div class="col-md-8">
+                <label for="tipo">Tipo</label>
+                <input type="text" name="tipo" id="tipo" class="form-control" required>
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary">Insertar Puesto</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <!-- Tabla de puestos -->
     <table class="table table-bordered table-striped table-hover">
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Ver</th> <!-- Columna para el botón "Ver" -->
-                <th>Editar</th> <!-- Columna para el botón "Editar" -->
-                <th>Eliminar</th> <!-- Columna para el botón "Eliminar" -->
+                <th>Nombre del Puesto</th>
+                <th>Tipo</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +43,8 @@
                 <tr>
                     <td>{{ $puesto->id }}</td>
                     <td>{{ $puesto->nombre }}</td>
-                    <td>{{ $puesto->descripcion }}</td>
+                    <td>{{ $puesto->tipo }}</td>
+
                     <!-- Botones para las acciones -->
                     <td>
                         <button class="btn btn-info btn-sm">Ver</button>
@@ -38,6 +59,11 @@
             @endforeach
         </tbody>
     </table>
+
+    <!-- Paginación Bootstrap -->
+    <div class="d-flex justify-content-center">
+        {{ $puestos->onEachSide(1)->links('pagination::bootstrap-4') }}
+    </div>
 </div>
 @endsection
 

@@ -8,89 +8,106 @@ use Illuminate\Http\Request;
 class PuestoController extends Controller
 {
     /**
-     * Muestra una lista de los recursos (Vista de lista de puestos).
+     * Reglas de validación
+     */
+    public $val = [
+        'nombre' => 'required|max:255|regex:/^[\p{L}\s]+$/u', // Solo letras y espacios
+        'descripcion' => 'required|max:500'
+    ];
+
+    /**
+     * Mostrar una lista de los recursos (Vista de lista de puestos con paginación).
      */
     public function index()
     {
-        // Traemos todos los puestos
-        $puestos = Puesto::all();
-        
-        // Pasamos los puestos a la vista
+        // Paginamos los puestos (5 por página)
+        $puestos = Puesto::paginate(5);
+
+        // Pasamos los puestos paginados a la vista
         return view('puestos.index', ['puestos' => $puestos]);
     }
 
     /**
-     * Muestra el formulario para crear un nuevo recurso (Vista para crear un puesto).
+     * Mostrar el formulario para crear un nuevo recurso (Vista para crear un puesto).
      */
     public function create()
     {
-        // Mostramos el formulario para crear un nuevo puesto
-        return view('puestos.create');
+        // Creamos una nueva instancia de Puesto vacía para el formulario
+        $puesto = new Puesto();
+
+        // Enviamos los datos necesarios a la vista de creación
+        return view('puestos.create', [
+            'puesto' => $puesto,
+            'accion' => 'C', // Acción de crear
+            'txtbtn' => 'INSERTAR'
+        ]);
     }
 
     /**
-     * Almacena un nuevo recurso en la base de datos.
+     * Almacenar un nuevo recurso en la base de datos.
      */
     public function store(Request $request)
     {
-        // Validar los datos del nuevo puesto
-        $validatedData = $request->validate([
-            'nombre' => 'required|max:255',
-            'descripcion' => 'required|max:500',
-        ]);
+        // Validamos los datos del formulario
+        $validatedData = $request->validate($this->val);
 
-        // Almacenar el nuevo puesto
+        // Creamos un nuevo puesto con los datos validados
         Puesto::create($validatedData);
 
-        // Redirigir a la lista de puestos con un mensaje de éxito
+        // Redirigimos a la lista de puestos con un mensaje de éxito
         return redirect()->route('puestos.index')->with('success', 'Puesto creado con éxito.');
     }
 
     /**
-     * Muestra el formulario para editar un recurso específico (Vista para editar un puesto).
+     * Mostrar los detalles de un recurso específico.
      */
-    public function edit(Puesto $puesto)
+    public function show(Puesto $puesto)
     {
-        // Mostramos el formulario para editar un puesto
-        return view('puestos.edit', ['puesto' => $puesto]);
+        // Mostramos los detalles del puesto
+        return view('puestos.show', [
+            'puesto' => $puesto,
+            'accion' => 'S', // Acción de mostrar
+            'txtbtn' => 'ELIMINAR'
+        ]);
     }
 
     /**
-     * Actualiza un recurso específico en la base de datos.
+     * Mostrar el formulario para editar un recurso específico.
+     */
+    public function edit(Puesto $puesto)
+    {
+        // Mostramos el formulario de edición
+        return view('puestos.edit', [
+            'puesto' => $puesto,
+            'accion' => 'E', // Acción de editar
+            'txtbtn' => 'Editar'
+        ]);
+    }
+
+    /**
+     * Actualizar un recurso específico en la base de datos.
      */
     public function update(Request $request, Puesto $puesto)
     {
-        // Validar los datos actualizados del puesto
-        $validatedData = $request->validate([
-            'nombre' => 'required|max:255',
-            'descripcion' => 'required|max:500',
-        ]);
+        // Validamos los datos actualizados
+        $validatedData = $request->validate($this->val);
 
         // Actualizamos el puesto con los datos validados
         $puesto->update($validatedData);
 
-        // Redirigir a la lista de puestos con un mensaje de éxito
+        // Redirigimos a la lista de puestos con un mensaje de éxito
         return redirect()->route('puestos.index')->with('success', 'Puesto actualizado con éxito.');
     }
 
     /**
-     * Elimina un recurso específico de la base de datos.
+     * Eliminar un recurso específico de la base de datos.
      */
     public function destroy(Puesto $puesto)
     {
-        // Elimina el puesto de la base de datos
+        // Eliminamos el puesto
         $puesto->delete();
 
-        // Redirige de vuelta a la lista de puestos con un mensaje de éxito
+        // Redirigimos a la lista de puestos con un mensaje de éxito
         return redirect()->route('puestos.index')->with('success', 'Puesto eliminado con éxito.');
-    }
-
-    /**
-     * Muestra un recurso específico (Vista para mostrar los detalles de un puesto).
-     */
-    public function show(Puesto $puesto)
-    {
-        // Pasamos los datos a la vista
-        return view('puestos.show', ['puesto' => $puesto]);
     }
 }

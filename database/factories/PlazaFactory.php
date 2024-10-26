@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PlazaFactory extends Factory
 {
-    protected $model = \App\Models\Plaza::class; // Define el modelo asociado
-
     /**
      * Define the model's default state.
      *
@@ -19,8 +17,8 @@ class PlazaFactory extends Factory
     public function definition(): array
     {
         return [
-            'idPlaza' => $this->faker->unique()->randomNumber(5),  // Genera un idPlaza único (puedes ajustarlo según necesites)
-            'nombrePlaza' => $this->faker->sentence(3),  // Genera un nombre de plaza aleatorio (frase de 3 palabras)
+            'idPlaza'=>fake()->bothify("???####"),
+            'nombrePlaza'=>fake()->jobTitle()
         ];
     }
 }

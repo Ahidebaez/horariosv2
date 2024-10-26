@@ -9,6 +9,5 @@ class Puesto extends Model
 {
     use HasFactory;
 
-    // Campos que se pueden rellenar en masa
-    protected $fillable = ['idpuesto', 'nombre', 'tipo', 'descripcion'];
+    protected $fillable=['idPuesto', 'nombre', 'tipo'];
 }

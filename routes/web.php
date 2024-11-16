@@ -4,20 +4,35 @@ use App\Models\Alumno;
 use Illuminate\Support\Facades\Route;
 
 
+use App\Http\Controllers\HoraController;
+use App\Http\Controllers\DeptoController;
+use App\Http\Controllers\LugarController;
+use App\Http\Controllers\PlazaController;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\PuestoController;
-use App\Http\Controllers\PlazaController;
-use App\Http\Controllers\DeptoController;
 use App\Http\Controllers\CarreraController;
-use App\Http\Controllers\ReticulaController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EdificioController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\ReticulaController;
+use App\Http\Controllers\PersonalPlazaController;
 
 
 Route::get('/', function () {
     return view('inicio');
 });
+
+
+Route::get('/materiasabiertas', function () {
+    return view('materiasabiertas');
+});
+
+
+// Route::get('/unidad1', function () {
+//     return view('unidad1');
+// });
 
 Route::get('/home', function () {
     return view('home');
@@ -99,6 +114,32 @@ Route::get('/periodos.show/{periodo}', [PeriodoController::class, 'show'])->name
 Route::post('/periodos.store', [PeriodoController::class, 'store'])->name('periodos.store');
 Route::post('/periodos.update/{periodo}', [PeriodoController::class, 'update'])->name('periodos.update');
 
+
+Route::resource('horas', HoraController::class);
+// Route::resource('edificios', EdificioController::class);
+// Route::resource('lugares', LugarController::class);
+
+// Route::get('/horas', [HoraController::class, 'index'])->name('horas.index');
+// Route::post('/horas', [HoraController::class, 'store'])->name('horas.store');
+// Route::put('/horas/{id}', [HoraController::class, 'update'])->name('horas.update');
+// Route::delete('/horas/{id}', [HoraController::class, 'destroy'])->name('horas.destroy');
+
+// Rutas para edificios
+Route::get('/edificios', [EdificioController::class, 'index'])->name('edificios.index'); // Mostrar todos los edificios
+Route::post('/edificios', [EdificioController::class, 'store'])->name('edificios.store'); // Crear un nuevo edificio
+Route::put('/edificios/{edificio}', [EdificioController::class, 'update'])->name('edificios.update'); // Actualizar un edificio
+Route::delete('/edificios/{edificio}', [EdificioController::class, 'destroy'])->name('edificios.destroy'); // Eliminar un edificio
+Route::get('/edificios/{edificio}', [EdificioController::class, 'show'])->name('edificios.show'); // Ver detalles de un edificio
+
+// Rutas para lugares
+Route::get('/lugares', [LugarController::class, 'index'])->name('lugares.index'); // Mostrar todos los lugares
+Route::post('/lugares', [LugarController::class, 'store'])->name('lugares.store'); // Crear un nuevo lugar
+Route::put('/lugares/{lugar}', [LugarController::class, 'update'])->name('lugares.update'); // Actualizar un lugar
+Route::delete('/lugares/{lugar}', [LugarController::class, 'destroy'])->name('lugares.destroy'); // Eliminar un lugar
+
+Route::get('personals', [PersonalController::class, 'index'])->name('personals.index');
+
+Route::get('/personalplazas', [PersonalPlazaController::class, 'index'])->name('personalplazas.index');
 
 // Rutas resource para Depto
 // Route::resource('deptos', DeptoController::class);
@@ -195,9 +236,9 @@ Route::get('/instrumentacion', function () {
     return view('instrumentacion');
 })->middleware("auth")->name('instrumentacion');
 
-Route::get('/tutorias', function () {
-    return view('tutorias');
-})->middleware("auth")->name('tutorias');
+// Route::get('/tutorias', function () {
+//     return view('tutorias');
+// })->middleware("auth")->name('tutorias');
 
 
 Route::middleware('auth')->group(function () {

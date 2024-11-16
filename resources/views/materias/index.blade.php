@@ -68,6 +68,7 @@
         </thead>
         <tbody>
             @foreach ($materias as $materia)
+              
                 <tr>
                     <td>{{ $materia->id }}</td>
                     <td>{{ $materia->idMateria }}</td>
